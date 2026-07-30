@@ -12,7 +12,9 @@ pipeline {
 		stage('Deploy with Ansible') {
 			steps {
 				sh '''
-				ansible-playbook nginx.yml
+				pwd
+				ls -R
+				ansible-playbook ansible/ nginx.yml
 				'''
 			}
 		}
