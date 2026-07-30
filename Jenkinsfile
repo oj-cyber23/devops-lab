@@ -14,7 +14,7 @@ pipeline {
 				sh '''
 				pwd
 				ls -R
-				ansible-playbook ansible/ nginx.yml
+				ansible-playbook ansible/nginx.yml
 				'''
 			}
 		}
