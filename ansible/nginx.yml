@@ -1,0 +1,31 @@
+---
+- name: Install and configure Nginx
+  hosts: localhost
+  become: yes
+
+  tasks:
+
+    - name: Install nginx
+      dnf:
+        name: nginx
+        state: present
+
+    - name: Start nginx service
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Create website page
+      copy:
+        dest: /usr/share/nginx/html/index.html
+        content: |
+          <html>
+          <head>
+              <title>DevOps Lab</title>
+          </head>
+          <body>
+              <h1>Hello from Jenkins + Ansible + Nginx</h1>
+              <p>This deployment was automated.</p>
+          </body>
+          </html>
