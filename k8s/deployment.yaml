@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-nginx
+  template:
+    metadata:
+      labels:
+        app: devops-nginx
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: nginx
+          image: ghcr.io/oj-cyber23/devops-nginx:v1
+          ports:
+            - containerPort: 80
+
