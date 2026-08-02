@@ -16,7 +16,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: nginx
-          image: ghcr.io/oj-cyber23/devops-nginx:v1
+          image: IMAGE_PLACEHOLDER
           ports:
             - containerPort: 80
 
